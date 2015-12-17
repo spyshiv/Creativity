@@ -35,6 +35,7 @@ var circleAttributes = circles
                        });
 /* target circle end */
 
+/*Four Circles*/
  var spaceCircles = [20,25,55,70];
  
  var svgContainer = d3.select("#fourcircle").append("svg")
@@ -71,3 +72,44 @@ var circleAttributes = circles
                           else if (d === 70) { returnColor = "orange";  }
                          return returnColor;
                        });
+/*Four circle ends*/
+
+/*microsoft logo*/
+var spaceRect = [0,50,55,60];
+ 
+ var svgContainer = d3.select("#microsoftlogo").append("svg")
+                                     .attr("width", 100)
+                                     .attr("height", 100);
+ 
+ var rects = svgContainer.selectAll("rect")
+                           .data(spaceRect)
+                           .enter()
+                          .append("rect");
+
+var circleAttributes = rects
+                       .attr("x", function (d) { 
+                        var xvalue;
+                        if(d===0){xvalue=d;}
+                        else if(d===50){xvalue=d;}
+                        else if(d===55){xvalue=d-55;}
+                        else if(d===60){xvalue=d-10;}
+                       	return xvalue; 
+                       })
+                       .attr("y", function (d) { 
+                        var yvalue;
+                        if(d===0){yvalue=d;}
+                        else if (d===25){yvalue=d-25;}
+                        else if (d===55){yvalue=d-5;}
+                        else if(d===60){yvalue=d-10;}
+                       	return yvalue; })
+                       .attr("width", 40)
+                       .attr("height",40)
+                       .style("fill", function(d) {
+                         var returnColor;
+                         if (d ===0) { returnColor = "#f65314";
+                         } else if (d === 50) { returnColor = "#7cbb00";
+                         } else if (d === 55) { returnColor = "#00a1f1";}
+                          else if (d === 60) { returnColor = "#ffbb00";  }
+                         return returnColor;
+                       });
+/*Microsoft logo end*/
